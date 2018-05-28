@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
+import Question from './Question';
+import AnswerForm from './AnswerForm';
+import Feedback from './Feedback';
 
 export class Dashboard extends React.Component {
   render() {
@@ -9,6 +12,9 @@ export class Dashboard extends React.Component {
         <div className="dashboard-username">
           Username: {this.props.username}
         </div>
+        <Question />
+        <AnswerForm />
+        <Feedback />
       </div>
     );
   }
@@ -17,7 +23,7 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
-    username: state.auth.currentUser.username
+    username: currentUser.username
   };
 };
 

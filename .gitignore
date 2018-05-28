@@ -3,6 +3,8 @@
 # dependencies
 /node_modules
 
+.netlify
+
 # testing
 /coverage
 
@@ -12,6 +14,7 @@
 # misc
 .DS_Store
 .env
+.env.production.local
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -6,9 +6,10 @@ export const fetchCurrentQuestionRequest = () => ({
 });
 
 export const FETCH_CURRENT_QUESTION_SUCCESS = 'FETCH_CURRENT_QUESTION_SUCCESS';
-export const fetchCurrentQuestionSuccess = currentQuestion => ({
+export const fetchCurrentQuestionSuccess = (currentQuestion, currentCorrectAnswer) => ({
   type: FETCH_CURRENT_QUESTION_SUCCESS,
-  currentQuestion
+  currentQuestion,
+  currentCorrectAnswer
 });
 
 export const FETCH_CURRENT_QUESTION_ERROR = 'FETCH_CURRENT_QUESTION_ERROR';
@@ -29,6 +30,6 @@ export const fetchCurrentQuestion = authToken => dispatch => {
       }
       return res.json();
     })
-    .then(res => dispatch(fetchCurrentQuestionSuccess(res[1].linkedList.head.value.question)))
+    .then(res => dispatch(fetchCurrentQuestionSuccess(res[1].linkedList.head.value.question, res[1].linkedList.head.value.answer)))
     .catch(err => dispatch(fetchCurrentQuestionError(err)));
 };

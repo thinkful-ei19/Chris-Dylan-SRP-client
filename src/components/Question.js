@@ -13,7 +13,6 @@ class Question extends Component {
     return (
       <div>
         {this.props.currentQuestion}
-        {/* <button onClick={() => this.props.dispatch(fetchCurrentQuestion(this.props.authToken))}>Click me</button> */}
       </div>
     );
   }

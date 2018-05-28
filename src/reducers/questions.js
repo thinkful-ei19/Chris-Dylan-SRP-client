@@ -2,6 +2,7 @@ import { FETCH_CURRENT_QUESTION_REQUEST, FETCH_CURRENT_QUESTION_SUCCESS, FETCH_C
 
 const initialState = {
   currentQuestion: '',
+  currentCorrectAnswer: '',
   loading: false,
   error: null
 };
@@ -12,7 +13,8 @@ export default function questionReducer(state = initialState, action) {
   } else if (action.type === FETCH_CURRENT_QUESTION_SUCCESS) {
     return Object.assign({}, state, {
       loading: false,
-      currentQuestion: action.currentQuestion
+      currentQuestion: action.currentQuestion,
+      currentCorrectAnswer: action.currentCorrectAnswer
     });
   } else if (action.type === FETCH_CURRENT_QUESTION_ERROR) {
     return Object.assign({}, state, {

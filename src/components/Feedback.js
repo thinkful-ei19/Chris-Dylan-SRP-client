@@ -14,8 +14,8 @@ class Feedback extends Component {
     }
 
     return (
-      <div>
-        <p>{correctFeedback}</p>
+      <div className="feedback">
+        <p className="feedback__result">{correctFeedback}</p>
         <p>Your guess: {this.props.currentGuess}</p>
         <p>Correct answer: {this.props.previousCorrectAnswer}</p>
       </div>

@@ -26,6 +26,7 @@ class AnswerForm extends Component {
         <form
           className="answer-form"
           onSubmit={this.props.handleSubmit(value => this.onSubmit(value.guess))}>
+          <label for="guess">Answer: </label>
           <Field
             component={Input}
             type="text"
@@ -33,7 +34,7 @@ class AnswerForm extends Component {
             id="guess"
           // validate={[required, nonEmpty]}
           />
-          <button disabled={this.props.pristine || this.props.submitting}>
+          <button className="answer__button" disabled={this.props.pristine || this.props.submitting}>
             Submit!
           </button>
         </form>

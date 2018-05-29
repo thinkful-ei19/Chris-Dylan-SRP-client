@@ -16,12 +16,11 @@ export class Dashboard extends React.Component {
 
     return (
       <div className="dashboard">
-        <div className="dashboard-username">
-          Hello, {this.props.username}
+        <div className="main-question">
+          <Question />
+          <AnswerForm />
+          {feedback}
         </div>
-        <Question />
-        <AnswerForm />
-        {feedback}
       </div>
     );
   }

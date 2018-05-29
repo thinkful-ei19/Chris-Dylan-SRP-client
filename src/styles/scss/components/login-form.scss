@@ -13,6 +13,7 @@
     background: none;
     color: $color-two;
     border: 2px solid $color-two;
+    border-radius: 5px;
 
     &:hover {
       color: #fff;
@@ -20,6 +21,10 @@
     }
 
   }
+}
+
+.form-error {
+  color: $color-one;
 }
 
 .registration {

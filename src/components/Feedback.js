@@ -13,7 +13,7 @@ class Feedback extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentGuess: state.guessReducer.currentGuess.guess,
+  currentGuess: state.guessReducer.currentGuess,
   currentCorrectAnswer: state.questionReducer.currentCorrectAnswer
 });
 

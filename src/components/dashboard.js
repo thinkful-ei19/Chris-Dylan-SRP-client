@@ -7,6 +7,13 @@ import Feedback from './Feedback';
 
 export class Dashboard extends React.Component {
   render() {
+
+    let feedback = <Feedback />;
+
+    if (this.props.hasAnswered === null) {
+      feedback = '';
+    }
+
     return (
       <div className="dashboard">
         <div className="dashboard-username">
@@ -14,7 +21,7 @@ export class Dashboard extends React.Component {
         </div>
         <Question />
         <AnswerForm />
-        <Feedback />
+        {feedback}
       </div>
     );
   }
@@ -23,7 +30,8 @@ export class Dashboard extends React.Component {
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
-    username: currentUser.username
+    username: currentUser.username,
+    hasAnswered: state.guessReducer.isCorrect
   };
 };
 

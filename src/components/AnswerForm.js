@@ -16,7 +16,7 @@ class AnswerForm extends Component {
       correct = true;
     }
 
-    return this.props.dispatch(makeGuess(this.props.authToken, value, this.props.currentDeck.id, correct))
+    return this.props.dispatch(makeGuess(this.props.authToken, value, this.props.currentDeck.id, correct, this.props.currentCorrectAnswer))
       .then(this.props.dispatch(reset('answer')));
   }
 

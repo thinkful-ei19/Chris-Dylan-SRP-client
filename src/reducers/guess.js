@@ -2,6 +2,7 @@ import { MAKE_GUESS_REQUEST, MAKE_GUESS_SUCCESS, MAKE_GUESS_ERROR } from '../act
 
 const initialState = {
   currentGuess: '',
+  isCorrect: null,
   loading: false,
   error: null
 };
@@ -12,6 +13,8 @@ export default function guessReducer(state = initialState, action) {
   } else if (action.type === MAKE_GUESS_SUCCESS) {
     return Object.assign({}, state, {
       currentGuess: action.currentGuess,
+      isCorrect: action.isCorrect,
+      previousCorrectAnswer: action.previousCorrectAnswer,
       loading: false
     });
   } else if (action.type === MAKE_GUESS_ERROR) {

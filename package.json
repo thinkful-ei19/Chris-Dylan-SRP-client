@@ -7,18 +7,22 @@
   },
   "dependencies": {
     "jwt-decode": "^2.2.0",
+    "node-sass": "^4.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.1",
     "redux": "^4.0.0",
     "redux-form": "^7.3.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "sass": "^1.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch:sass": "node-sass src/styles/sass/compile.scss src/index.css -w",
+    "compile:sass": "node-sass src/styles/sass/compile.scss src/index.css"
   }
 }

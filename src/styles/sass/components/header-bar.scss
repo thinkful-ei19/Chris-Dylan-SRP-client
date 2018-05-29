@@ -1,0 +1,21 @@
+.header-bar {
+
+    padding: 1rem;
+    background-image: linear-gradient(to right, rgba($color-two, .5) .2, rgba($color-two, .5));
+
+    &__header {
+        display: inline-block;
+        font-size: 3rem;
+    }
+
+    &__logout {
+        float: right;
+        font-size: 2rem;
+        padding: 0.5rem;
+
+        &:hover {
+            cursor: pointer;
+            color: orangered;
+        }
+    }
+}

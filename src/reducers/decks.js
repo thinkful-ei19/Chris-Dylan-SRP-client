@@ -1,7 +1,7 @@
 import { FETCH_CURRENT_DECK_REQUEST, FETCH_CURRENT_DECK_SUCCESS, FETCH_CURRENT_DECK_ERROR } from '../actions/decks';
 
 const initialState = {
-  currentDeck: null,
+  currentDeck: '',
   loading: false,
   error: null
 };

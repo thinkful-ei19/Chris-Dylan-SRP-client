@@ -47,7 +47,8 @@ const mapStateToProps = state => {
   return {
     authToken: state.auth.authToken,
     currentDeck: state.deckReducer.currentDeck,
-    currentCorrectAnswer: state.questionReducer.currentCorrectAnswer
+    currentCorrectAnswer: state.questionReducer.currentCorrectAnswer,
+    currentQuestionId: state.questionReducer.currentQuestionId,
   };
 };
 

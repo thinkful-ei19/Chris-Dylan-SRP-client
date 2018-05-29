@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import Question from './Question';
+import Options from './options'
 import AnswerForm from './AnswerForm';
 import Feedback from './Feedback';
 
@@ -21,6 +22,7 @@ export class Dashboard extends React.Component {
         </div>
         <Question />
         <AnswerForm />
+        <Options />
         {feedback}
       </div>
     );

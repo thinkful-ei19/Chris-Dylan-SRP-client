@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Field, reduxForm, focus } from 'redux-form';
+import { Field, reduxForm, focus, reset } from 'redux-form';
+import { connect } from 'react-redux';
+import requiresLogin from './requires-login';
 import Input from './input';
 import { required, nonEmpty } from '../validators';
 import { makeGuess } from '../actions/guess';
@@ -7,7 +9,15 @@ import { makeGuess } from '../actions/guess';
 class AnswerForm extends Component {
 
   onSubmit(value) {
-    return this.props.dispatch(makeGuess(value));
+
+    let correct = false;
+
+    if (value.toLowerCase() === this.props.currentCorrectAnswer.toLowerCase()) {
+      correct = true;
+    }
+
+    return this.props.dispatch(makeGuess(this.props.authToken, value, this.props.currentDeck.id, correct))
+      .then(this.props.dispatch(reset('answer')));
   }
 
   render() {
@@ -15,15 +25,13 @@ class AnswerForm extends Component {
       <div>
         <form
           className="answer-form"
-          onSubmit={this.props.handleSubmit(value =>
-            this.onSubmit(value)
-          )}>
+          onSubmit={this.props.handleSubmit(value => this.onSubmit(value.guess))}>
           <Field
             component={Input}
             type="text"
             name="guess"
             id="guess"
-            validate={[required, nonEmpty]}
+          // validate={[required, nonEmpty]}
           />
           <button disabled={this.props.pristine || this.props.submitting}>
             Submit!
@@ -35,7 +43,17 @@ class AnswerForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    authToken: state.auth.authToken,
+    currentDeck: state.deckReducer.currentDeck,
+    currentCorrectAnswer: state.questionReducer.currentCorrectAnswer
+  };
+};
+
+const connectedAnswerForm = requiresLogin()(connect(mapStateToProps)(AnswerForm));
+
 export default reduxForm({
   form: 'answer',
   onSubmitFail: (errors, dispatch) => dispatch(focus('answer', 'guess'))
-})(AnswerForm);
+})(connectedAnswerForm);

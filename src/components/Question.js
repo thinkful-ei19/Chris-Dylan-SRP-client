@@ -25,12 +25,12 @@ const mapStateToProps = state => {
 
   let currentDeck = currentUser.decks[0];
 
-  if (currentUser.decks.length !== 1) {
+  if (currentUser.decks.length > 1) {
     currentDeck = state.deckReducer.currentDeck;
   }
 
   return {
-    authToken: currentUser,
+    authToken: state.auth.authToken,
     currentQuestion: state.questionReducer.currentQuestion,
     currentDeck
   };

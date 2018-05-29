@@ -1,0 +1,12 @@
+.header-bar {
+  padding: 1rem; }
+  .header-bar__header {
+    display: inline-block;
+    font-size: 3rem; }
+  .header-bar__logout {
+    float: right;
+    font-size: 2rem;
+    padding: 0.5rem; }
+    .header-bar__logout:hover {
+      cursor: pointer;
+      color: orangered; }

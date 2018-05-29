@@ -1,0 +1,36 @@
+.hero {
+
+    background-image: linear-gradient((rgba(20,20,20, .5), rgba(20,20,20, .5))), url('../assets/hero3.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10rem;
+
+    &__header {
+        font-size: 6rem;
+        font-weight: 300;
+        color: #fff;
+    }
+
+    &__description {
+        width: 50%;
+        font-size: 2rem;
+        color: #fff;
+    }
+
+}
+
+.home {
+    margin: 0 auto;
+}
+
+.forms {
+    font-size: 1.5rem;
+    max-width: 300px;
+    margin: 0 auto 20rem;
+}

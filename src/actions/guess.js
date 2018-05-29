@@ -7,9 +7,11 @@ export const makeGuessRequest = () => ({
 });
 
 export const MAKE_GUESS_SUCCESS = 'MAKE_GUESS_SUCCESS';
-export const makeGuessSuccess = (currentGuess) => ({
+export const makeGuessSuccess = (currentGuess, isCorrect, previousCorrectAnswer) => ({
   type: MAKE_GUESS_SUCCESS,
-  currentGuess
+  currentGuess,
+  isCorrect,
+  previousCorrectAnswer
 });
 
 export const MAKE_GUESS_ERROR = 'MAKE_GUESS_ERROR';
@@ -18,7 +20,7 @@ export const makeGuessError = error => ({
   error
 });
 
-export const makeGuess = (authToken, currentGuess, deckId, correct) => dispatch => {
+export const makeGuess = (authToken, currentGuess, deckId, correct, correctAnswer) => dispatch => {
   dispatch(makeGuessRequest());
   return fetch(`${API_BASE_URL}/update-session/${deckId}`, {
     method: 'POST',
@@ -32,10 +34,13 @@ export const makeGuess = (authToken, currentGuess, deckId, correct) => dispatch 
       return res.json();
     })
     .then(res => {
-      console.log(res);
-      dispatch(makeGuessSuccess(currentGuess));
+      dispatch(makeGuessSuccess(currentGuess, correct, correctAnswer));
       dispatch(fetchCurrentQuestionSuccess(res.question, res.answer));
     })
-    // .then(() => dispatch(makeGuessSuccess(currentGuess)))
     .catch(err => dispatch(makeGuessError(err)));
 };
+
+export const RESET_FEEDBACK = 'RESET_FEEDBACK';
+export const resetFeedback = () => ({
+  type: RESET_FEEDBACK
+});

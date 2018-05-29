@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import requiresLogin from './requires-login';
 
 class Feedback extends Component {
   render() {
+
+    let correctFeedback = '';
+
+    if (this.props.isCorrect === true) {
+      correctFeedback = 'Correct!';
+    } else if (this.props.isCorrect === false) {
+      correctFeedback = 'Incorrect!';
+    }
+
     return (
       <div>
+        <p>{correctFeedback}</p>
         <p>Your guess: {this.props.currentGuess}</p>
-        <p>Correct answer: {this.props.currentCorrectAnswer}</p>
+        <p>Correct answer: {this.props.previousCorrectAnswer}</p>
       </div>
     );
   }
@@ -14,7 +25,8 @@ class Feedback extends Component {
 
 const mapStateToProps = state => ({
   currentGuess: state.guessReducer.currentGuess,
-  currentCorrectAnswer: state.questionReducer.currentCorrectAnswer
+  previousCorrectAnswer: state.guessReducer.previousCorrectAnswer,
+  isCorrect: state.guessReducer.isCorrect
 });
 
-export default connect(mapStateToProps)(Feedback);
+export default requiresLogin()(connect(mapStateToProps)(Feedback));

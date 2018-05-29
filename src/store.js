@@ -5,6 +5,7 @@ import { loadAuthToken } from './local-storage';
 import authReducer from './reducers/auth';
 import questionReducer from './reducers/questions';
 import guessReducer from './reducers/guess';
+import deckReducer from './reducers/decks';
 import { setAuthToken, refreshAuthToken } from './actions/auth';
 
 const store = createStore(
@@ -12,7 +13,8 @@ const store = createStore(
     form: formReducer,
     auth: authReducer,
     questionReducer,
-    guessReducer
+    guessReducer,
+    deckReducer
   }),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   applyMiddleware(thunk)

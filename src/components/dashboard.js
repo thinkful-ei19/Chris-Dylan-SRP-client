@@ -10,7 +10,7 @@ export class Dashboard extends React.Component {
     return (
       <div className="dashboard">
         <div className="dashboard-username">
-          Username: {this.props.username}
+          Hello, {this.props.username}
         </div>
         <Question />
         <AnswerForm />

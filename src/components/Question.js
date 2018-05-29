@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCurrentQuestion } from '../actions/questions';
+import { fetchCurrentDeck } from '../actions/decks';
 import requiresLogin from './requires-login';
 
 class Question extends Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchCurrentQuestion(this.props.authToken));
+    this.props.dispatch(fetchCurrentDeck(this.props.authToken, this.props.currentDeck));
+    this.props.dispatch(fetchCurrentQuestion(this.props.authToken, this.props.currentDeck));
   }
 
   render() {
@@ -20,9 +22,17 @@ class Question extends Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
+
+  let currentDeck = currentUser.decks[0];
+
+  if (currentUser.decks.length !== 1) {
+    currentDeck = state.deckReducer.currentDeck;
+  }
+
   return {
     authToken: currentUser,
-    currentQuestion: state.questionReducer.currentQuestion
+    currentQuestion: state.questionReducer.currentQuestion,
+    currentDeck
   };
 };
 

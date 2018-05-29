@@ -18,9 +18,9 @@ export const fetchCurrentQuestionError = error => ({
   error
 });
 
-export const fetchCurrentQuestion = authToken => dispatch => {
+export const fetchCurrentQuestion = (authToken, deckId) => dispatch => {
   dispatch(fetchCurrentQuestionRequest());
-  return fetch(`${API_BASE_URL}/decks`, {
+  return fetch(`${API_BASE_URL}/decks/${deckId}`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${authToken}` }
   })
@@ -30,6 +30,6 @@ export const fetchCurrentQuestion = authToken => dispatch => {
       }
       return res.json();
     })
-    .then(res => dispatch(fetchCurrentQuestionSuccess(res[1].linkedList.head.value.question, res[1].linkedList.head.value.answer)))
+    .then(res => dispatch(fetchCurrentQuestionSuccess(res.linkedList.head.value.question, res.linkedList.head.value.answer)))
     .catch(err => dispatch(fetchCurrentQuestionError(err)));
 };

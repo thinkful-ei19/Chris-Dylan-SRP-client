@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchCurrentQuestion } from '../actions/questions';
 import { fetchCurrentDeck } from '../actions/decks';
+import { resetFeedback } from '../actions/guess';
 import requiresLogin from './requires-login';
 
 class Question extends Component {
 
   componentDidMount() {
+    this.props.dispatch(resetFeedback());
     this.props.dispatch(fetchCurrentDeck(this.props.authToken, this.props.currentDeck));
     this.props.dispatch(fetchCurrentQuestion(this.props.authToken, this.props.currentDeck));
   }

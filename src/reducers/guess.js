@@ -1,4 +1,4 @@
-import { MAKE_GUESS_REQUEST, MAKE_GUESS_SUCCESS, MAKE_GUESS_ERROR } from '../actions/guess';
+import { MAKE_GUESS_REQUEST, MAKE_GUESS_SUCCESS, MAKE_GUESS_ERROR, RESET_FEEDBACK } from '../actions/guess';
 
 const initialState = {
   currentGuess: '',
@@ -21,6 +21,11 @@ export default function guessReducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error
+    });
+  } else if (action.type === RESET_FEEDBACK) {
+    return Object.assign({}, state, {
+      currentGuess: '',
+      isCorrect: null
     });
   }
   return state;

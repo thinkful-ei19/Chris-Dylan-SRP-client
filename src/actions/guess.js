@@ -39,3 +39,8 @@ export const makeGuess = (authToken, currentGuess, deckId, correct, correctAnswe
     })
     .catch(err => dispatch(makeGuessError(err)));
 };
+
+export const RESET_FEEDBACK = 'RESET_FEEDBACK';
+export const resetFeedback = () => ({
+  type: RESET_FEEDBACK
+});

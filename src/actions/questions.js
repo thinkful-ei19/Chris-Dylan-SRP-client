@@ -71,7 +71,6 @@ export const editItem = (authToken, request) => dispatch => {
     return res.json()
   })
   .then((res) => {
-    console.log(res)
     dispatch(fetchCurrentQuestion(authToken, deckId));
   })
   .catch(err => console.error(err))

@@ -1,10 +1,11 @@
-import { MAKE_GUESS_REQUEST, MAKE_GUESS_SUCCESS, MAKE_GUESS_ERROR, RESET_FEEDBACK } from '../actions/guess';
+import { MAKE_GUESS_REQUEST, MAKE_GUESS_SUCCESS, MAKE_GUESS_ERROR, RESET_FEEDBACK, INCREMENT_TOTAL_CORRECT  } from '../actions/guess';
 
 const initialState = {
   currentGuess: '',
   isCorrect: null,
   loading: false,
-  error: null
+  error: null,
+  totalCorrect: 0
 };
 
 export default function guessReducer(state = initialState, action) {
@@ -26,6 +27,10 @@ export default function guessReducer(state = initialState, action) {
     return Object.assign({}, state, {
       currentGuess: '',
       isCorrect: null
+    });
+  } else if (action.type === INCREMENT_TOTAL_CORRECT) {
+    return Object.assign({}, state, {
+      totalCorrect: action.totalCorrect
     });
   }
   return state;

@@ -1,7 +1,9 @@
 .login-form {
-  border: 2px solid $color-two;
+  border: 2px solid #eee;
   padding: 2rem;
   border-radius: 5px;
+
+  background-color: rgb(246, 246, 246);
 
   font-size: 1.5rem;
   max-width: 300px;
@@ -25,6 +27,10 @@
 
 .input {
   padding: 5px 10px;
+}
+
+input:-webkit-auto-fill {
+  background-color: #fff;
 }
 
 .form-error {

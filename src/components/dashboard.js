@@ -22,6 +22,7 @@ export class Dashboard extends React.Component {
     if (this.props.hasAnswered === null) {
       feedback = '';
     }
+    
     if (this.props.noData === true) {
       return (
         <div className="dashboard">
@@ -42,10 +43,12 @@ export class Dashboard extends React.Component {
             Hello, {this.props.username}
           </div>
           <h3 className="dashboard-deckname">{this.props.currentDeckName}</h3>
-          <Question />
-          <AnswerForm />
-          <Options />
-          {feedback}
+          <div className="main-question">
+            <Question />
+            <AnswerForm />
+            <Options />
+            {feedback}
+          </div>
         </div>
       );
     }

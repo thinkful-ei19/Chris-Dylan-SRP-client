@@ -29,8 +29,7 @@ button {
   cursor: pointer; }
 
 .header-bar {
-  padding: 1rem;
-  background-image: linear-gradient(to right, rgba(109, 121, 147, 0.5) 0.2, rgba(109, 121, 147, 0.5)); }
+  padding: 1rem; }
   .header-bar__header {
     display: inline-block;
     font-size: 3rem; }
@@ -41,3 +40,10 @@ button {
     .header-bar__logout:hover {
       cursor: pointer;
       color: orangered; }
+
+.hero {
+  background-image: url("./styles/assets/hero.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 800px;
+  display: flex; }

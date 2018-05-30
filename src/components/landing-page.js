@@ -12,9 +12,15 @@ export function LandingPage(props) {
 
   return (
     <div className="home">
-      <h2>Welcome to Foo App</h2>
-      <LoginForm />
-      <Link to="/register">Register</Link>
+      <div className="hero">
+        <h2 className="hero__header">Welcome to RepeatRepeat</h2>
+        <p className="hero__description">RepeatRepeat is a web application that helps you learn a language fast! Simply sign up or log in below and start learning. Once you log in, you'll be sent to your dashboard. There, you'll go through a series of questions to learn basic French! Our super-smart algorithm will test you in an order that will optimize your learning! You'll also have the ability to create your own decks with your own questions.</p>
+      </div>
+      <div className="forms">
+        <h2>Log In</h2>
+        <LoginForm />
+        <Link to="/register">Register</Link>
+      </div>
     </div>
   );
 }

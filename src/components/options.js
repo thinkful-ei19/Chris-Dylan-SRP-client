@@ -24,8 +24,9 @@ class Options extends Component {
             component.props.dispatch(deleteItem(component.props.authToken, request))
         }
         let dropDownMenu = [];
+        
         try {
-            this.props.deckNames.decks.forEach((deck) => {
+            this.props.deckNames.forEach((deck) => {
                 dropDownMenu.push(deck)
             })
         } catch(err) {

@@ -87,6 +87,9 @@ button {
       color: #fff;
       background-color: #6D7993; }
 
+.input {
+  padding: 5px 10px; }
+
 .form-error {
   color: #96858F; }
 

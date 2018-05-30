@@ -32,3 +32,25 @@ export const fetchCurrentDeck = (authToken, deckId) => dispatch => {
     .then(deck => dispatch(fetchCurrentDeckSuccess(deck)))
     .catch(err => dispatch(fetchCurrentDeckError(err)));
 };
+
+export const FETCH_DECK_NAMES = 'FETCH_DECK_NAMES';
+export const fetchDeckNames = (decks) => ({
+  type: FETCH_DECK_NAMES,
+  decks
+})
+export const getDeckNames = (authToken, userId) => dispatch => {
+  console.log(userId)
+  return fetch(`${API_BASE_URL}/deck-list/${userId}`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${authToken}` }
+  })
+  .then(res => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText)
+    }
+    return res.json();
+  })
+  .then(decks => {
+    dispatch(fetchDeckNames(decks))
+  })
+}

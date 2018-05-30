@@ -5,6 +5,7 @@ import requiresLogin from './requires-login';
 import Input from './input';
 import { required, nonEmpty } from '../validators';
 import { makeGuess } from '../actions/guess';
+import { postCount } from '../actions/guess';
 
 class AnswerForm extends Component {
 
@@ -16,6 +17,10 @@ class AnswerForm extends Component {
       correct = true;
     }
 
+    if (correct === true) {
+      this.props.dispatch(postCount(this.props.authToken, this.props.userId))
+    }
+
     return this.props.dispatch(makeGuess(this.props.authToken, value, this.props.currentDeck.id, correct, this.props.currentCorrectAnswer))
       .then(this.props.dispatch(reset('answer')));
   }
@@ -23,6 +28,7 @@ class AnswerForm extends Component {
   render() {
     return (
       <div>
+        <span>{this.props.currentCount}</span>
         <form
           className="answer-form"
           onSubmit={this.props.handleSubmit(value => this.onSubmit(value.guess))}>
@@ -48,7 +54,10 @@ const mapStateToProps = state => {
   return {
     authToken: state.auth.authToken,
     currentDeck: state.deckReducer.currentDeck,
-    currentCorrectAnswer: state.questionReducer.currentCorrectAnswer
+    currentCorrectAnswer: state.questionReducer.currentCorrectAnswer,
+    currentQuestionId: state.questionReducer.currentQuestionId,
+    currentCount: state.guessReducer.totalCorrect,
+    userId: state.auth.currentUser.id
   };
 };
 

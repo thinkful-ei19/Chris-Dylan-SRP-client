@@ -14,7 +14,7 @@ export function LandingPage(props) {
     <div className="home">
       <div className="hero">
         <h2 className="hero__header">Welcome to RepeatRepeat</h2>
-        <p className="hero__description">RepeatRepeat is a web application that helps you learn a language fast! Our super-smart algorithm will test you in an order that will optimize your learning!</p>
+        <p className="hero__description">RepeatRepeat will help you learn a language fast! Our super-smart algorithm will test you in an order that will optimize your learning!</p>
       </div>
       <div className="forms">
         <h2>Log In</h2>

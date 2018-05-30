@@ -36,7 +36,8 @@ button {
   cursor: pointer; }
 
 .header-bar {
-  padding: 1rem; }
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.5); }
   .header-bar__header {
     display: inline-block;
     font-size: 3rem; }
@@ -46,7 +47,7 @@ button {
     padding: 0.5rem; }
     .header-bar__logout:hover {
       cursor: pointer;
-      color: orangered; }
+      color: #AF473C; }
 
 .hero {
   background-image: linear-gradient(rgba(20, 20, 20, 0.3), rgba(20, 20, 20, 0.3)), url("../assets/hero4.jpg");

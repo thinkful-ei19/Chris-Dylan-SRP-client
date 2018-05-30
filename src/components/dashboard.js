@@ -16,8 +16,6 @@ export class Dashboard extends React.Component {
       feedback = '';
     }
 
-    console.log(this.props)
-
     if (this.props.noData === true) {
       return (
         <div className="dashboard">
@@ -48,6 +46,7 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
+  console.log(state)
   return {
     username: currentUser.username,
     hasAnswered: state.guessReducer.isCorrect,

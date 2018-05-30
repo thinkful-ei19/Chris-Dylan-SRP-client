@@ -67,7 +67,7 @@ export const makeGuess = (authToken, currentGuess, deckId, correct, correctAnswe
     })
     .then(res => {
       dispatch(makeGuessSuccess(currentGuess, correct, correctAnswer));
-      dispatch(fetchCurrentQuestionSuccess(res.question, res.answer, res.question));
+      dispatch(fetchCurrentQuestionSuccess(res.question, res.answer, res._id));
     })
     .catch(err => dispatch(makeGuessError(err)));
 };

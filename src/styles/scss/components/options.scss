@@ -1,0 +1,73 @@
+.options {
+
+  border: 2px solid #eee;
+  background-color: rgb(246, 246, 246);
+  border-radius: 10px;
+  padding: 40px 60px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  & > * {
+    margin: 10px 0;
+  }
+
+  &__delete {
+    color: $color-warning;
+    border: 2px solid $color-warning;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $color-warning;
+      color: #fff;
+    }
+  }
+
+  &__new-deck {
+    color: $color-submit;
+    border: 2px solid $color-submit;
+    border-radius: 5px;
+    padding: 5px 10px;
+
+    &:hover {
+      background-color: $color-submit;
+      color: #fff;
+    }
+  }
+
+  &__edit-item-form {
+
+    &__button {
+      color: $color-edit;
+      border: 2px solid $color-edit;
+      border-radius: 5px;
+      margin-top: 5px;
+      padding: 5px 10px;
+  
+      &:hover {
+        background-color: $color-edit;
+        color: #fff;
+      }
+    }
+
+  }
+
+  &__add-item-form {
+
+    &__button {
+
+      color: $color-submit;
+      border: 2px solid $color-submit;
+      border-radius: 5px;
+      padding: 5px 10px;
+      margin-top: 5px;
+
+      &:hover {
+        background-color: $color-submit;
+        color: #fff;
+      }
+    }
+
+  }
+
+}

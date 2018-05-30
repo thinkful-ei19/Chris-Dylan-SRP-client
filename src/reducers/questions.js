@@ -1,11 +1,12 @@
-import { FETCH_CURRENT_QUESTION_REQUEST, FETCH_CURRENT_QUESTION_SUCCESS, FETCH_CURRENT_QUESTION_ERROR } from '../actions/questions';
+import { FETCH_CURRENT_QUESTION_REQUEST, FETCH_CURRENT_QUESTION_SUCCESS, FETCH_CURRENT_QUESTION_ERROR, NO_DATA } from '../actions/questions';
 
 const initialState = {
   currentQuestion: '',
   currentCorrectAnswer: '',
   currentQuestionId: '',
   loading: false,
-  error: null
+  error: null,
+  noData: false
 };
 
 export default function questionReducer(state = initialState, action) {
@@ -17,14 +18,19 @@ export default function questionReducer(state = initialState, action) {
       loading: false,
       currentQuestion: action.currentQuestion,
       currentCorrectAnswer: action.currentCorrectAnswer,
-      currentQuestionId: action.questionId
+      currentQuestionId: action.questionId,
+      noData: false
     });
   } else if (action.type === FETCH_CURRENT_QUESTION_ERROR) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error
     });
+  } else if (action.type === NO_DATA) {
+    return Object.assign({}, state, {
+      noData: true
+    });
   }
-
+  
   return state;
 }

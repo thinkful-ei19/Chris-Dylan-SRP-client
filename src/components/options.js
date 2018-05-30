@@ -30,7 +30,6 @@ class Options extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state)
     const { currentUser } = state.auth;
     return {
       authToken: state.auth.authToken,

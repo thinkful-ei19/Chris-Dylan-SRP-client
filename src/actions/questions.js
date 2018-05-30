@@ -19,7 +19,13 @@ export const fetchCurrentQuestionError = error => ({
   error
 });
 
-export const addItem = (authToken, request) => {
+export const NO_DATA = 'NO_DATA';
+export const noData = () => ({
+  type: NO_DATA
+})
+
+export const addItem = (authToken, request) => dispatch => {
+  let deckId = request.deckId
   return fetch(`${API_BASE_URL}/add-item`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${authToken}`,
@@ -32,7 +38,9 @@ export const addItem = (authToken, request) => {
     }
     return res.json();
   })
-  .then(res => console.log(res))
+  .then(res => {
+    dispatch(fetchCurrentQuestion(authToken, deckId));
+  })
   .catch((err) => console.error(err))
 }
 
@@ -97,6 +105,7 @@ export const fetchCurrentQuestion = (authToken, deckId) => dispatch => {
           dispatch(fetchCurrentQuestionSuccess(res.linkedList.head.value.question, res.linkedList.head.value.answer, res.linkedList.head.value._id))
         }
       } else {
+        dispatch(noData())
         console.log('no data')
       }
     })

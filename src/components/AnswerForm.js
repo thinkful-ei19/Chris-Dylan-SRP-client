@@ -3,7 +3,7 @@ import { Field, reduxForm, focus, reset } from 'redux-form';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import Input from './input';
-import { required, nonEmpty } from '../validators';
+// import { required, nonEmpty } from '../validators';
 import { makeGuess } from '../actions/guess';
 import { postCount } from '../actions/guess';
 
@@ -18,7 +18,7 @@ class AnswerForm extends Component {
     }
 
     if (correct === true) {
-      this.props.dispatch(postCount(this.props.authToken, this.props.userId))
+      this.props.dispatch(postCount(this.props.authToken, this.props.userId));
     }
 
     return this.props.dispatch(makeGuess(this.props.authToken, value, this.props.currentDeck.id, correct, this.props.currentCorrectAnswer))
@@ -32,7 +32,7 @@ class AnswerForm extends Component {
         <form
           className="answer-form"
           onSubmit={this.props.handleSubmit(value => this.onSubmit(value.guess))}>
-          <label for="guess">Answer: </label>
+          <label htmlFor="guess">Answer: </label>
           <Field
             component={Input}
             type="text"

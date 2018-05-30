@@ -39,12 +39,12 @@ export class Dashboard extends React.Component {
     } else {
       return (
         <div className="dashboard">
-          <div className="dashboard-username">
-            Hello, {this.props.username}
-          </div>
-          <h3 className="dashboard-deckname">{this.props.currentDeckName}</h3>
           <div className="main-question">
             <div>
+              <div className="dashboard-username">
+                Hello, {this.props.username}
+              </div>
+              <h3 className="dashboard-deckname">{this.props.currentDeckName}</h3>
               <Question />
               <AnswerForm />
               {feedback}

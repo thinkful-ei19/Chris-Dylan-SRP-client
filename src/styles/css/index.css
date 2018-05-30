@@ -99,6 +99,9 @@ button {
 .input {
   padding: 5px 10px; }
 
+input:-webkit-auto-fill {
+  background-color: #fff; }
+
 .form-error {
   color: #96858F; }
 

@@ -13,7 +13,7 @@ class AnswerForm extends Component {
 
     let correct = false;
 
-    if (value.toLowerCase() === this.props.currentCorrectAnswer.toLowerCase()) {
+    if (value.toLowerCase().trim() === this.props.currentCorrectAnswer.toLowerCase()) {
       correct = true;
     }
 
@@ -28,7 +28,7 @@ class AnswerForm extends Component {
   render() {
     return (
       <div>
-        <span>{this.props.currentCount}</span>
+        <p>Total correct: <span>{this.props.currentCount}</span></p>
         <form
           className="answer-form"
           onSubmit={this.props.handleSubmit(value => this.onSubmit(value.guess))}>

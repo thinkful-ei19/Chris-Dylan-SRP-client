@@ -29,6 +29,10 @@
   padding: 5px 10px;
 }
 
+input:-webkit-auto-fill {
+  background-color: #fff;
+}
+
 .form-error {
   color: $color-one;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import Question from './Question';
-import Options from './options'
+import Options from './options';
 import AnswerForm from './AnswerForm';
 import AddItemForm from './add-item-form';
 import Feedback from './Feedback';
@@ -18,24 +18,25 @@ export class Dashboard extends React.Component {
     }
     return (
       <div className="dashboard">
-        <div className="dashboard-username">
-          Hello, {this.props.username}
-        </div>
-        <h3 className="dashboard-deckname">{this.props.currentDeckName}</h3>
         <div className="main-question">
-          <Question />
-          <AnswerForm />
+          <div>
+            <div className="dashboard-username">
+              Hello, {this.props.username}
+            </div>
+            <h3 className="dashboard-deckname">{this.props.currentDeckName}</h3>
+            <Question />
+            <AnswerForm />
+            {feedback}
+          </div>
           <Options />
-          {feedback}
         </div>
       </div>
     );
-    }
+  }
 }
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
-  console.log(state)
   return {
     username: currentUser.username,
     userId: currentUser.id,

@@ -11,7 +11,6 @@ class AddItemForm extends React.Component {
             answer: values.answer,
             deckId: this.props.currentDeckId
         }
-        console.log(item.deckId)
         this.props.dispatch(addItem(this.props.authToken, item))
     }
 

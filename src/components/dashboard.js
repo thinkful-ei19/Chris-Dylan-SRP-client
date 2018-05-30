@@ -15,13 +15,13 @@ export class Dashboard extends React.Component {
     if (this.props.hasAnswered === null) {
       feedback = '';
     }
-
     if (this.props.noData === true) {
       return (
         <div className="dashboard">
         <div className="dashboard-username">
           Hello, {this.props.username}
         </div>
+        <h3>{this.props.currentDeckName}</h3>
         <div>
           <h2>There is no data! You need to add more questions to this deck.</h2>
         </div>
@@ -34,6 +34,7 @@ export class Dashboard extends React.Component {
           <div className="dashboard-username">
             Hello, {this.props.username}
           </div>
+          <h3 className="dashboard-deckname">{this.props.currentDeckName}</h3>
           <Question />
           <AnswerForm />
           <Options />
@@ -46,11 +47,11 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
   const { currentUser } = state.auth;
-  console.log(state)
   return {
     username: currentUser.username,
     hasAnswered: state.guessReducer.isCorrect,
-    noData: state.questionReducer.noData
+    noData: state.questionReducer.noData,
+    currentDeckName: state.deckReducer.currentDeck.name
   };
 };
 

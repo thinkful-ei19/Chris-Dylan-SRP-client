@@ -57,7 +57,7 @@ export const makeGuess = (authToken, currentGuess, deckId, correct, correctAnswe
   return fetch(`${API_BASE_URL}/update-session/${deckId}`, {
     method: 'POST',
     body: JSON.stringify({ correct }),
-    headers: { Authorization: `Bearer ${authToken}` }
+    headers: { Authorization: `Bearer ${authToken}`, 'content-type': 'application/json' }
   })
     .then(res => {
       if (!res.ok) {

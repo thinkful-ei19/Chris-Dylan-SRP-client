@@ -3,9 +3,15 @@ import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import AddItemForm from './add-item-form';
 import EditItemForm from './edit-item-form';
-import {deleteItem} from '../actions/questions'
+import AddDeckForm from './add-deck-form';
+import {deleteItem} from '../actions/questions';
+import {changeDeck, fetchCurrentDeck} from '../actions/decks';
 
 class Options extends Component {
+
+    dispatchChangeDeck(deckId) {
+        this.props.dispatch(fetchCurrentDeck(this.props.authToken, deckId))
+    }
 
     render() {
         //Setting component variable to bind this.
@@ -36,10 +42,10 @@ class Options extends Component {
                 <button onClick={deleteCurrentItem} className="options__delete">Delete Current Item</button>       
                 <EditItemForm/>
                 <AddItemForm/>                
-                <select>
+                <select onChange={(event) => {this.dispatchChangeDeck(event.target.value)}}>
                     {buildMenuJSX}                    
                 </select>
-                <button className="options__new-deck">New Deck</button>
+                <AddDeckForm/>
             </div>
         )
     }
@@ -47,8 +53,8 @@ class Options extends Component {
 }
 
 const mapStateToProps = state => {
+    
     const { currentUser } = state.auth;
-    console.log(state)
     return {
       authToken: state.auth.authToken,
       currentQuestion: state.questionReducer.currentQuestion,

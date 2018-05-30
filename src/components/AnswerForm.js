@@ -32,7 +32,7 @@ class AnswerForm extends Component {
         <form
           className="answer-form"
           onSubmit={this.props.handleSubmit(value => this.onSubmit(value.guess))}>
-          <label for="guess">Answer: </label>
+          <label htmlFor="guess">Answer: </label>
           <Field
             component={Input}
             type="text"

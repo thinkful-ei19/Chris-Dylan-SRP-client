@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Field, reduxForm, focus} from 'redux-form';
+import {Field, reduxForm, focus, reset} from 'redux-form';
 import Input from './input';
 import {editItem} from '../actions/questions';
 
@@ -12,7 +12,8 @@ class EditItemForm extends React.Component {
             deckId: this.props.currentDeckId,
             questionId: this.props.currentQuestionId
         }
-       this.props.dispatch(editItem(this.props.authToken, item))
+        this.props.dispatch(reset('edit-item-form'))
+        this.props.dispatch(editItem(this.props.authToken, item))
     }
 
     render() {

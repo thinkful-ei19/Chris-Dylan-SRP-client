@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Field, reduxForm, focus} from 'redux-form';
+import {Field, reduxForm, focus, reset} from 'redux-form';
 import Input from './input';
 import {addItem} from '../actions/questions';
 
@@ -11,6 +11,7 @@ class AddItemForm extends React.Component {
             answer: values.answer,
             deckId: this.props.currentDeckId
         }
+        this.props.dispatch(reset('add-item-form'))
         this.props.dispatch(addItem(this.props.authToken, item))
     }
 

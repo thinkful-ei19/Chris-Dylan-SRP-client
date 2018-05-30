@@ -5,6 +5,7 @@ import {
   AUTH_SUCCESS,
   AUTH_ERROR
 } from '../actions/auth';
+import { FETCH_DECK_NAMES } from '../actions/decks';
 
 const initialState = {
   authToken: null, // authToken !== null does not mean it has been validated
@@ -37,6 +38,16 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error
+    });
+  } else if (action.type === FETCH_DECK_NAMES) {
+    let decks = [];
+    action.decks.forEach((deck) => {
+      decks.push(deck.id)
+    })
+    let currentUser = state.currentUser;
+    currentUser.decks = decks;
+    return Object.assign({}, state, {
+      currentUser: currentUser
     });
   }
   return state;

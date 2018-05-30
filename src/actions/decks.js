@@ -1,4 +1,6 @@
 import { API_BASE_URL } from '../config';
+import {fetchCurrentQuestion} from './questions';
+
 
 export const FETCH_CURRENT_DECK_REQUEST = 'FETCH_CURRENT_DECK_REQUEST';
 export const fetchCurrentDeckRequest = () => ({
@@ -17,6 +19,12 @@ export const fetchCurrentDeckError = error => ({
   error
 });
 
+export const CHANGE_DECK = 'CHANGE_DECK';
+export const changeDeck = (deck) => ({
+  type: CHANGE_DECK,
+  deck
+})
+
 export const fetchCurrentDeck = (authToken, deckId) => dispatch => {
   dispatch(fetchCurrentDeckRequest());
   return fetch(`${API_BASE_URL}/decks/${deckId}`, {
@@ -29,17 +37,21 @@ export const fetchCurrentDeck = (authToken, deckId) => dispatch => {
       }
       return res.json();
     })
-    .then(deck => dispatch(fetchCurrentDeckSuccess(deck)))
+    .then(deck => {
+      dispatch(fetchCurrentQuestion(authToken, deckId))
+      if (!deck) {return;}
+      dispatch(fetchCurrentDeckSuccess(deck))
+    })
     .catch(err => dispatch(fetchCurrentDeckError(err)));
 };
 
 export const FETCH_DECK_NAMES = 'FETCH_DECK_NAMES';
 export const fetchDeckNames = (decks) => ({
   type: FETCH_DECK_NAMES,
-  decks
+  decks: decks.decks
 })
 export const getDeckNames = (authToken, userId) => dispatch => {
-  console.log(userId)
+  
   return fetch(`${API_BASE_URL}/deck-list/${userId}`, {
     method: 'GET',
     headers: { Authorization: `Bearer ${authToken}` }
@@ -53,4 +65,42 @@ export const getDeckNames = (authToken, userId) => dispatch => {
   .then(decks => {
     dispatch(fetchDeckNames(decks))
   })
+  .catch(err => console.error(err))
+}
+
+export const addDeck = (authToken, userId, name) => dispatch => {
+
+  return fetch(`${API_BASE_URL}/add-deck`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${authToken}`, 'content-type': 'application/json' },
+    body: JSON.stringify({ userId, name })
+  })
+  .then((res) => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText)
+    }
+    return res.json();
+  })
+  .then((res) => {
+    dispatch(getDeckNames(authToken, userId))
+  })
+  .catch(err => console.error(err)) 
+}
+
+export const deleteDeck = (authToken, userId, deckId) => dispatch => {
+  return fetch(`${API_BASE_URL}/decks/${deckId}`, {
+    method: 'DELETE',
+    headers: { Authorization: `Bearer ${authToken}`, 'content-type': 'application/json' },
+    body: JSON.stringify({ userId })
+  })
+  .then((res) => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText)
+    }
+    return res;
+  })
+  .then((res) => {
+    dispatch(getDeckNames(authToken, userId))
+  })
+  .catch(err => console.error(err)) 
 }

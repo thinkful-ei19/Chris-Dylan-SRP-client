@@ -22,6 +22,12 @@ export default function questionReducer(state = initialState, action) {
       noData: false
     });
   } else if (action.type === FETCH_CURRENT_QUESTION_ERROR) {
+    if (action.error) {
+      return Object.assign({}, state, {
+        currentQuestion: 'No questions to display!',
+        error: action.error
+      })
+    }
     return Object.assign({}, state, {
       loading: false,
       error: action.error

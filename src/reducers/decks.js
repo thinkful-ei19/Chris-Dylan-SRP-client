@@ -1,9 +1,10 @@
-import { FETCH_CURRENT_DECK_REQUEST, FETCH_CURRENT_DECK_SUCCESS, FETCH_CURRENT_DECK_ERROR } from '../actions/decks';
+import { FETCH_CURRENT_DECK_REQUEST, FETCH_CURRENT_DECK_SUCCESS, FETCH_CURRENT_DECK_ERROR, FETCH_DECK_NAMES } from '../actions/decks';
 
 const initialState = {
   currentDeck: '',
   loading: false,
-  error: null
+  error: null,
+  deckNames: []
 };
 
 export default function deckReducer(state = initialState, action) {
@@ -18,6 +19,10 @@ export default function deckReducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error
+    });
+  } else if (action.type === FETCH_DECK_NAMES) {
+    return Object.assign({}, state, {
+      deckNames: action.decks
     });
   }
   return state;

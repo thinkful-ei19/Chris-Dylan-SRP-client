@@ -6,8 +6,15 @@ import Options from './options'
 import AnswerForm from './AnswerForm';
 import AddItemForm from './add-item-form';
 import Feedback from './Feedback';
+import {getDeckNames} from '../actions/decks'
 
 export class Dashboard extends React.Component {
+
+  componentDidMount() {
+    
+    this.props.dispatch(getDeckNames(this.props.authToken, this.props.userId))
+  }
+
   render() {
 
     let feedback = <Feedback />;
@@ -49,9 +56,12 @@ const mapStateToProps = state => {
   const { currentUser } = state.auth;
   return {
     username: currentUser.username,
+    userId: currentUser.id,
     hasAnswered: state.guessReducer.isCorrect,
     noData: state.questionReducer.noData,
-    currentDeckName: state.deckReducer.currentDeck.name
+    currentDeckName: state.deckReducer.currentDeck.name,
+    authToken: state.auth.authToken,
+    deckNames: state.deckReducer.deckNames
   };
 };
 

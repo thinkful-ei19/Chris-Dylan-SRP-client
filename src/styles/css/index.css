@@ -25,6 +25,13 @@ body {
   font-weight: 400;
   line-height: 1.7; }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+  .app__content {
+    flex: 1 0 auto; }
+
 button {
   cursor: pointer; }
 
@@ -42,7 +49,7 @@ button {
       color: orangered; }
 
 .hero {
-  background-image: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url("../assets/hero3.jpg");
+  background-image: linear-gradient(rgba(20, 20, 20, 0.3), rgba(20, 20, 20, 0.3)), url("../assets/hero4.jpg");
   background-size: cover;
   background-position: center center;
   height: 600px;
@@ -185,3 +192,12 @@ button {
     .options__add-item-form__button:hover {
       background-color: #626E60;
       color: #fff; }
+
+.footer {
+  font-size: 1.5rem;
+  height: 80px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #eee; }

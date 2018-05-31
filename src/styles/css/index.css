@@ -178,12 +178,12 @@ input:-webkit-auto-fill {
       background-color: #AF473C;
       color: #fff; }
   .options__new-deck {
-    color: #626E60;
-    border: 2px solid #626E60;
+    color: #96b98f;
+    border: 2px solid #96b98f;
     border-radius: 5px;
     padding: 5px 10px; }
     .options__new-deck:hover {
-      background-color: #626E60;
+      background-color: #96b98f;
       color: #fff; }
   .options__edit-item-form__button {
     color: #FEA680;
@@ -195,13 +195,13 @@ input:-webkit-auto-fill {
       background-color: #FEA680;
       color: #fff; }
   .options__add-item-form__button {
-    color: #626E60;
-    border: 2px solid #626E60;
+    color: #96b98f;
+    border: 2px solid #96b98f;
     border-radius: 5px;
     padding: 5px 10px;
     margin-top: 5px; }
     .options__add-item-form__button:hover {
-      background-color: #626E60;
+      background-color: #96b98f;
       color: #fff; }
 
 .footer {
@@ -212,3 +212,30 @@ input:-webkit-auto-fill {
   justify-content: center;
   align-items: center;
   color: #eee; }
+
+.decks {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem; }
+
+.deck-list {
+  list-style: none; }
+  .deck-list__item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px 20px;
+    background-color: #fafafa; }
+  .deck-list__name {
+    display: inline-block;
+    margin-right: 20px; }
+  .deck-list__delete {
+    color: #AF473C;
+    border: 2px solid #AF473C;
+    padding: 5px 10px;
+    border-radius: 5px; }
+    .deck-list__delete:hover {
+      background-color: #AF473C;
+      color: #fff; }

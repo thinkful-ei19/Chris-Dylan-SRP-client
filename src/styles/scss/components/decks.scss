@@ -28,14 +28,64 @@
     margin-right: 20px
   }
 
+  &__publish {
+    color: $color-submit;
+    border: 2px solid $color-submit;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $color-submit;
+      color: #fff;
+    }
+  }
+
   &__delete {
     color: $color-warning;
     border: 2px solid $color-warning;
+    margin: 0 5px;
     padding: 5px 10px;
     border-radius: 5px;
 
     &:hover {
       background-color: $color-warning;
+      color: #fff;
+    }
+  }
+
+}
+
+.shared-decks {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 1.5rem;
+
+  &__list {
+    list-style-type: none;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px 20px;
+    background-color: rgb(250, 250, 250);
+  }
+
+  &__button {
+    color: $color-submit;
+    border: 2px solid $color-submit;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $color-submit;
       color: #fff;
     }
   }

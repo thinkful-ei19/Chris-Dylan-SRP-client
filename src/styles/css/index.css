@@ -222,6 +222,10 @@ input:-webkit-auto-fill {
   justify-content: center;
   align-items: center;
   color: #eee; }
+  .footer__link {
+    color: #eee; }
+    .footer__link:hover {
+      color: #d1584a; }
 
 .decks {
   margin-top: 40px;

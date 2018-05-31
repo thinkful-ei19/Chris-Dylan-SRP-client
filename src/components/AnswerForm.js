@@ -28,7 +28,8 @@ class AnswerForm extends Component {
   render() {
     return (
       <div>
-        <p>Total correct: <span>{this.props.currentCount}</span></p>
+        <p>Total score: <span>{this.props.currentCount}</span></p>
+        <p>Current Session Score: <span>{this.props.currentSessionCount}</span></p>
         <form
           className="answer-form"
           onSubmit={this.props.handleSubmit(value => this.onSubmit(value.guess))}>
@@ -51,12 +52,14 @@ class AnswerForm extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state.guessReducer.sessionTotalCorrect)
   return {
     authToken: state.auth.authToken,
     currentDeck: state.deckReducer.currentDeck,
     currentCorrectAnswer: state.questionReducer.currentCorrectAnswer,
     currentQuestionId: state.questionReducer.currentQuestionId,
     currentCount: state.guessReducer.totalCorrect,
+    currentSessionCount: state.guessReducer.sessionTotalCorrect,
     userId: state.auth.currentUser.id
   };
 };

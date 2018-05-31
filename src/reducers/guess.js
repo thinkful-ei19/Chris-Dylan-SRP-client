@@ -5,7 +5,8 @@ const initialState = {
   isCorrect: null,
   loading: false,
   error: null,
-  totalCorrect: 0
+  totalCorrect: 0,
+  sessionTotalCorrect: -1
 };
 
 export default function guessReducer(state = initialState, action) {
@@ -29,9 +30,12 @@ export default function guessReducer(state = initialState, action) {
       isCorrect: null
     });
   } else if (action.type === INCREMENT_TOTAL_CORRECT) {
+    const incrementSessionCount = state.sessionTotalCorrect + 1;
     return Object.assign({}, state, {
-      totalCorrect: action.totalCorrect
+      totalCorrect: action.totalCorrect,
+      sessionTotalCorrect: incrementSessionCount
     });
   }
+  console.log(state)
   return state;
 }

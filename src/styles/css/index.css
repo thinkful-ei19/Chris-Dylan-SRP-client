@@ -90,7 +90,7 @@ button {
 
 .login-form {
   border: 2px solid #eee;
-  padding: 2rem;
+  padding: 2rem 3rem;
   border-radius: 5px;
   background-color: #f6f6f6;
   font-size: 1.5rem;
@@ -113,7 +113,7 @@ input:-webkit-auto-fill {
   background-color: #fff; }
 
 .form-error {
-  color: #96858F; }
+  color: #AF473C; }
 
 .registration {
   font-size: 1.5rem;

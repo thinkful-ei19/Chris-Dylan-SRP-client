@@ -14,6 +14,9 @@ export class Dashboard extends React.Component {
     if (this.props.currentTab === 'decks') {
       return <Redirect to='/decks' />;
     }
+    if (this.props.currentTab === 'shared-decks') {
+      return <Redirect to='/shared-decks' />;
+    }
 
     let feedback = <Feedback />;
 

@@ -52,7 +52,6 @@ class AnswerForm extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state.guessReducer.sessionTotalCorrect)
   return {
     authToken: state.auth.authToken,
     currentDeck: state.deckReducer.currentDeck,

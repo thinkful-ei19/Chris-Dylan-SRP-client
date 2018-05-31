@@ -6,6 +6,7 @@ import HeaderBar from './header-bar';
 import LandingPage from './landing-page';
 import Dashboard from './dashboard';
 import DeckManagement from './deck-management';
+import SharedDecks from './shared-decks';
 import Footer from './footer';
 import RegistrationPage from './registration-page';
 import { refreshAuthToken } from '../actions/auth';
@@ -49,6 +50,7 @@ export class App extends React.Component {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/register" component={RegistrationPage} />
           <Route exact path="/decks" component={DeckManagement} />
+          <Route exact path="/shared-decks" component={SharedDecks} />
         </div>
         <Footer />
       </div>

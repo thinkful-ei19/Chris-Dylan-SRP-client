@@ -104,3 +104,38 @@ export const deleteDeck = (authToken, userId, deckId) => dispatch => {
   })
   .catch(err => console.error(err)) 
 }
+
+export const makePublicDeck = (authToken, request, deckId, userId) => dispatch => {
+  return fetch(`${API_BASE_URL}/publish-deck/${deckId}`, {
+    method: 'PUT',
+    headers: { Authorization: `Bearer ${authToken}`, 'content-type': 'application/json' },
+    body: JSON.stringify( request )
+  })
+  .then((res) => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText)
+    }
+    return res.json();
+  })
+  .then((res) => {
+    dispatch(getDeckNames(authToken, userId))
+  })
+  .catch(err => console.error(err))
+}
+
+export const copyDeck = (authToken, deckId, userId) => dispatch => {
+  return fetch(`${API_BASE_URL}/copy-deck/${deckId}`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${authToken}`, 'content-type': 'application/json' },
+    body: JSON.stringify( {userId} )
+  })
+  .then((res) => {
+    if (!res.ok) {
+      return Promise.reject(res.statusText)
+    }
+    return res.json();
+  })
+  .then((res) => {
+    dispatch(getDeckNames(authToken, userId))
+  })
+}

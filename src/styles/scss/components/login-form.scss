@@ -35,6 +35,9 @@ input:-webkit-auto-fill {
 
 .form-error {
   color: $color-warning;
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 2px;
 }
 
 .registration {

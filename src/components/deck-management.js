@@ -49,7 +49,7 @@ export class DeckManagement extends React.Component {
       <div className="decks">
         <div className="decks__wrap">
           <AddDeckForm />
-          <p>Current Decks:</p>
+          <p className="decks__header">Current Decks:</p>
           <ul className="deck-list">
             {buildJSX}
           </ul>

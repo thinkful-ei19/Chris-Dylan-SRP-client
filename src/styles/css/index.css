@@ -50,7 +50,7 @@ button {
       margin: 0 10px; }
       .header-bar__nav > *:hover {
         cursor: pointer;
-        color: #AF473C; }
+        color: #d1584a; }
 
 .logo {
   width: 50px;
@@ -113,7 +113,10 @@ input:-webkit-auto-fill {
   background-color: #fff; }
 
 .form-error {
-  color: #AF473C; }
+  color: #d1584a;
+  position: absolute;
+  margin-left: 10px;
+  margin-top: 2px; }
 
 .registration {
   font-size: 1.5rem;
@@ -126,6 +129,7 @@ input:-webkit-auto-fill {
 .main-question {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   font-size: 1.5rem; }
 
 .answer-form {
@@ -166,19 +170,24 @@ input:-webkit-auto-fill {
   border: 2px solid #eee;
   background-color: #f6f6f6;
   border-radius: 10px;
-  padding: 40px 60px;
+  padding: 40px 80px;
   height: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column; }
   .options > * {
-    margin: 10px 0; }
+    margin: 20px 0; }
+  .options__input {
+    width: 100%; }
+  .options__label {
+    font-weight: 700; }
   .options__delete {
-    color: #AF473C;
-    border: 2px solid #AF473C;
+    color: #d1584a;
+    border: 2px solid #d1584a;
     padding: 5px 10px;
     border-radius: 5px; }
     .options__delete:hover {
-      background-color: #AF473C;
+      background-color: #d1584a;
       color: #fff; }
   .options__new-deck {
     color: #96b98f;
@@ -191,6 +200,7 @@ input:-webkit-auto-fill {
   .options__edit-item-form__button {
     color: #FEA680;
     border: 2px solid #FEA680;
+    width: 100%;
     border-radius: 5px;
     margin-top: 5px;
     padding: 5px 10px; }
@@ -202,7 +212,8 @@ input:-webkit-auto-fill {
     border: 2px solid #96b98f;
     border-radius: 5px;
     padding: 5px 10px;
-    margin-top: 5px; }
+    margin-top: 5px;
+    width: 100%; }
     .options__add-item-form__button:hover {
       background-color: #96b98f;
       color: #fff; }
@@ -222,6 +233,8 @@ input:-webkit-auto-fill {
   justify-content: center;
   align-items: center;
   font-size: 1.5rem; }
+  .decks__header {
+    margin-top: 20px; }
 
 .deck-list {
   list-style: none; }
@@ -235,10 +248,10 @@ input:-webkit-auto-fill {
     display: inline-block;
     margin-right: 20px; }
   .deck-list__delete {
-    color: #AF473C;
-    border: 2px solid #AF473C;
+    color: #d1584a;
+    border: 2px solid #d1584a;
     padding: 5px 10px;
     border-radius: 5px; }
     .deck-list__delete:hover {
-      background-color: #AF473C;
+      background-color: #d1584a;
       color: #fff; }

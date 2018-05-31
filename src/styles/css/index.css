@@ -243,7 +243,10 @@ input:-webkit-auto-fill {
     border-radius: 5px;
     margin: 10px 0;
     padding: 15px 20px;
-    background-color: #fafafa; }
+    background-color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
   .deck-list__name {
     display: inline-block;
     margin-right: 20px; }

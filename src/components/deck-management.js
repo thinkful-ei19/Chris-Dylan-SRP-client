@@ -68,13 +68,15 @@ export class DeckManagement extends React.Component {
       return (
         <li className="deck-list__item" value={deck.id} id={deck.id} key={deck.id}>
           <p className="deck-list__name">{deck.name}</p>
-          <button className="deck-list__delete" value={deck.id}
-            onClick={(event) => this.dispatchDeleteDeck(event.target.value)}>
-            Delete</button>
-          <button className="deck-list__publish" value={deck.id} name={deck.status}
-            onClick={(event) => this.dispatchPublishDeck(event.target.value, event.target.name)
-            }>
-            {deck.public}</button>
+          <div>
+            <button className="deck-list__delete" value={deck.id}
+              onClick={(event) => this.dispatchDeleteDeck(event.target.value)}>
+              Delete</button>
+            <button className="deck-list__publish" value={deck.id} name={deck.status}
+              onClick={(event) => this.dispatchPublishDeck(event.target.value, event.target.name)
+              }>
+              {deck.public}</button>
+          </div>
         </li>
       );
     });

@@ -84,9 +84,10 @@ button {
   font-size: 1.5rem;
   margin-bottom: 20rem;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  flex-wrap: wrap; }
   .forms > * {
-    margin: 0 40px; }
+    margin: 20px 40px; }
 
 .login-form {
   border: 2px solid #eee;
@@ -113,10 +114,7 @@ input:-webkit-auto-fill {
   background-color: #fff; }
 
 .form-error {
-  color: #d1584a;
-  position: absolute;
-  margin-left: 10px;
-  margin-top: 2px; }
+  color: #d1584a; }
 
 .registration {
   font-size: 1.5rem;
@@ -133,7 +131,7 @@ input:-webkit-auto-fill {
   font-size: 1.5rem; }
 
 .answer-form {
-  margin: 5rem 0;
+  margin-bottom: 5rem;
   padding: 5rem;
   color: white;
   border: 1px solid #96858F;
@@ -177,7 +175,7 @@ input:-webkit-auto-fill {
   flex-direction: column; }
   .options > * {
     margin: 20px 0; }
-  .options__input {
+  .options__section {
     width: 100%; }
   .options__label {
     font-weight: 700; }
@@ -200,7 +198,6 @@ input:-webkit-auto-fill {
   .options__edit-item-form__button {
     color: #FEA680;
     border: 2px solid #FEA680;
-    width: 100%;
     border-radius: 5px;
     margin-top: 5px;
     padding: 5px 10px; }
@@ -212,8 +209,7 @@ input:-webkit-auto-fill {
     border: 2px solid #96b98f;
     border-radius: 5px;
     padding: 5px 10px;
-    margin-top: 5px;
-    width: 100%; }
+    margin-top: 5px; }
     .options__add-item-form__button:hover {
       background-color: #96b98f;
       color: #fff; }

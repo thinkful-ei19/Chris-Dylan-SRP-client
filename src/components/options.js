@@ -39,21 +39,21 @@ class Options extends Component {
 
     return (
       <div className="options">
-        <div>
+        <div className="options__section">
           <label className="options__label">Select Deck: </label>
           <select onChange={(event) => { this.dispatchChangeDeck(event.target.value); }}>
             {buildMenuJSX}
           </select>
         </div>
-        <div>
+        <div className="options__section">
           <label className="options__label">Add Item</label>
           <AddItemForm />
         </div>
-        <div>
+        <div className="options__section">
           <label className="options__label">Edit Current Item</label>
           <EditItemForm />
         </div>
-        <button onClick={deleteCurrentItem} className="options__delete">Delete Current Item</button>
+        <button onClick={deleteCurrentItem} className="options__delete options__section">Delete Current Item</button>
       </div>
     );
   }

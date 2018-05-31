@@ -29,8 +29,8 @@ export class Dashboard extends React.Component {
             </div>
             <h3 className="dashboard-deckname">{this.props.currentDeckName}</h3>
             <Question />
-            <AnswerForm />
             {feedback}
+            <AnswerForm />
           </div>
           <Options />
         </div>

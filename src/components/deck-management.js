@@ -31,9 +31,10 @@ export class DeckManagement extends React.Component {
       decks.forEach((deck) => {
         arr.push(deck);
       });
-    } catch (err) {
-      console.log(err);
-    }
+      arr = arr.sort((a,b) => {
+          return a.name.charCodeAt(0) > b.name.charCodeAt(0)
+      })
+    } catch (err) {}
     const buildJSX = arr.map((deck) => {
       return (
         <li className="deck-list__item" value={deck.id} id={deck.id} key={deck.id}>

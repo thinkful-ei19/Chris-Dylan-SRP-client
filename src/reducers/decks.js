@@ -29,5 +29,6 @@ export default function deckReducer(state = initialState, action) {
       currentDeck: action.deck
     })
   }
+
   return state;
 }

@@ -106,7 +106,6 @@ export const fetchCurrentQuestion = (authToken, deckId) => dispatch => {
         }
       } else {
         dispatch(noData())
-        console.log('no data')
       }
     })
     .catch(err => dispatch(fetchCurrentQuestionError(err)));

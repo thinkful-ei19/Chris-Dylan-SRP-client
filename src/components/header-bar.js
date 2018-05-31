@@ -22,7 +22,7 @@ export class HeaderBar extends React.Component {
     let logOutButton;
     let deckManager;
     let dashboard;
-
+    let sharedDecks;
     if (!this.props.loggedIn) {
       logInButton = (<AnchorLink href="#login-form" className="header-bar__login">Log in</AnchorLink>);
     }
@@ -33,6 +33,9 @@ export class HeaderBar extends React.Component {
       );
       deckManager = (
         <a className="header-bar__deck-manager" onClick={() => this.changeTab('decks')}>Decks</a>
+      );
+      sharedDecks = (
+        <a className="header-bar__shared-decks" onClick={() => this.changeTab('shared-decks')}>Shared Decks</a>
       );
       logOutButton = (
         <a className="header-bar__logout" onClick={() => this.logOut()}>Log out</a>
@@ -46,6 +49,7 @@ export class HeaderBar extends React.Component {
           {logInButton}
           {dashboard}
           {deckManager}
+          {sharedDecks}          
           {logOutButton}
         </div>
       </div>

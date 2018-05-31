@@ -36,6 +36,5 @@ export default function guessReducer(state = initialState, action) {
       sessionTotalCorrect: incrementSessionCount
     });
   }
-  console.log(state)
   return state;
 }

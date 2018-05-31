@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
 
 import LoginForm from './login-form';
+import RegistrationForm from './registration-form';
 
 export function LandingPage(props) {
   // If we are logged in redirect straight to the user's dashboard
@@ -17,9 +18,15 @@ export function LandingPage(props) {
         <p className="hero__description">RepeatRepeat will help you learn a language fast! Our super-smart algorithm will test you in an order that will optimize your learning!</p>
       </div>
       <div className="forms">
-        <h2>Log In</h2>
-        <LoginForm />
-        <Link to="/register">Register</Link>
+        <div>
+          <h2>Log In</h2>
+          <LoginForm />
+        </div>
+        <div>
+          <h2>Register</h2>
+          <RegistrationForm />
+        </div>
+        {/* <Link to="/register">Register</Link> */}
       </div>
     </div>
   );

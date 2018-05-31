@@ -23,6 +23,8 @@ export class HeaderBar extends React.Component {
     let deckManager;
     let dashboard;
 
+    console.log(this.props);
+
     if (!this.props.loggedIn) {
       logInButton = (<AnchorLink href="#login-form" className="header-bar__login">Log in</AnchorLink>);
     }

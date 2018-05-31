@@ -82,8 +82,11 @@ button {
 
 .forms {
   font-size: 1.5rem;
-  max-width: 300px;
-  margin: 0 auto 20rem; }
+  margin-bottom: 20rem;
+  display: flex;
+  justify-content: center; }
+  .forms > * {
+    margin: 0 40px; }
 
 .login-form {
   border: 2px solid #eee;

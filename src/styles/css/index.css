@@ -43,12 +43,14 @@ button {
   align-items: center; }
   .header-bar__header {
     font-size: 3rem; }
-  .header-bar__logout {
+  .header-bar__nav {
     font-size: 1.75rem;
     padding: 0.5rem; }
-    .header-bar__logout:hover {
-      cursor: pointer;
-      color: #AF473C; }
+    .header-bar__nav > * {
+      margin: 0 10px; }
+      .header-bar__nav > *:hover {
+        cursor: pointer;
+        color: #AF473C; }
 
 .logo {
   width: 50px;
@@ -58,7 +60,7 @@ button {
   background-image: linear-gradient(rgba(20, 20, 20, 0.3), rgba(20, 20, 20, 0.3)), url("../assets/hero4.jpg");
   background-size: cover;
   background-position: center center;
-  height: 600px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -72,7 +74,8 @@ button {
   .hero__description {
     width: 50%;
     font-size: 2rem;
-    color: #fff; }
+    color: #fff;
+    padding-bottom: 69px; }
 
 .home {
   margin: 0 auto; }
@@ -88,7 +91,6 @@ button {
   border-radius: 5px;
   background-color: #f6f6f6;
   font-size: 1.5rem;
-  max-width: 300px;
   margin: 0 auto; }
   .login-form__button {
     padding: 5px 10px;
@@ -113,7 +115,7 @@ input:-webkit-auto-fill {
 .registration {
   font-size: 1.5rem;
   max-width: 300px;
-  margin: 0 auto; }
+  margin: 40px auto 0; }
 
 .dashboard {
   margin: 5rem 20rem; }

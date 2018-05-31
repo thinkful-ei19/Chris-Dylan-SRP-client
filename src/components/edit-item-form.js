@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus, reset} from 'redux-form';
+import { required, nonEmpty } from '../validators';
 
 import Input from './input';
 import { editItem } from '../actions/questions';
@@ -26,6 +27,7 @@ class EditItemForm extends React.Component {
           type="text"
           name="question"
           id="question"
+          validate={[required, nonEmpty]}
         />
         <label className="options__edit-item-form__label" htmlFor="answer">Answer</label>
         <Field
@@ -33,6 +35,7 @@ class EditItemForm extends React.Component {
           type="answer"
           name="answer"
           id="answer"
+          validate={[required, nonEmpty]}
         />
         <button
           className="options__edit-item-form__button"

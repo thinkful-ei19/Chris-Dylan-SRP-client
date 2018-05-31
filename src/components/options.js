@@ -8,7 +8,6 @@ import {deleteItem} from '../actions/questions';
 import {changeDeck, fetchCurrentDeck} from '../actions/decks';
 
 class Options extends Component {
-
     dispatchChangeDeck(deckId) {
         this.props.dispatch(fetchCurrentDeck(this.props.authToken, deckId))
     }
@@ -40,13 +39,15 @@ class Options extends Component {
 
         return (
             <div className="options">
-                <button onClick={deleteCurrentItem} className="options__delete">Delete Current Item</button>       
-                <EditItemForm/>
-                <AddItemForm/>                
+                <label>Select Deck</label>
                 <select onChange={(event) => {this.dispatchChangeDeck(event.target.value)}}>
                     {buildMenuJSX}                    
                 </select>
-                <AddDeckForm/>
+                <label>Add Item</label>
+                <AddItemForm/>             
+                <label>Edit Current Item</label>                   
+                <EditItemForm/>                
+                <button onClick={deleteCurrentItem} className="options__delete">Delete Current Item</button>                       
             </div>
         )
     }

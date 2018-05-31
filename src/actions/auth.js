@@ -34,6 +34,12 @@ export const authError = error => ({
   error
 });
 
+export const CHANGE_TAB = 'CHANGE_TAB';
+export const changeTab = (currentTab) => ({
+  type: CHANGE_TAB,
+  currentTab
+})
+
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {
@@ -102,3 +108,4 @@ export const refreshAuthToken = () => (dispatch, getState) => {
       clearAuthToken(authToken);
     });
 };
+

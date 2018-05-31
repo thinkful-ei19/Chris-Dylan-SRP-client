@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Field, reduxForm, focus, reset} from 'redux-form';
 import Input from './input';
 import {addDeck} from '../actions/decks';
+import { required, nonEmpty } from '../validators';
+
 
 class AddDeckForm extends React.Component {
     onSubmit(values) {
@@ -19,6 +21,7 @@ class AddDeckForm extends React.Component {
                     type="text"
                     name="deckName"
                     id="deckName"
+                    validate={[required, nonEmpty]}
                 />
                 <button
                     className="options__add-item-form__button"

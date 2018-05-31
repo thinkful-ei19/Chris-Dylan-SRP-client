@@ -3,7 +3,8 @@ import {
   CLEAR_AUTH,
   AUTH_REQUEST,
   AUTH_SUCCESS,
-  AUTH_ERROR
+  AUTH_ERROR,
+  CHANGE_TAB
 } from '../actions/auth';
 import { FETCH_DECK_NAMES } from '../actions/decks';
 
@@ -11,7 +12,8 @@ const initialState = {
   authToken: null, // authToken !== null does not mean it has been validated
   currentUser: null,
   loading: false,
-  error: null
+  error: null,
+  currentTab: 'dashboard'
 };
 
 export default function reducer(state = initialState, action) {
@@ -49,6 +51,11 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       currentUser: currentUser
     });
+  } else if (action.type === CHANGE_TAB) {
+    return Object.assign({}, state, {
+      currentTab: action.currentTab
+    })
   }
+
   return state;
 }

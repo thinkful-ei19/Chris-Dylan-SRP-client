@@ -3,7 +3,7 @@ import { Field, reduxForm, focus, reset } from 'redux-form';
 import { connect } from 'react-redux';
 import requiresLogin from './requires-login';
 import Input from './input';
-// import { required, nonEmpty } from '../validators';
+import { required, nonEmpty } from '../validators';
 import { makeGuess } from '../actions/guess';
 import { postCount } from '../actions/guess';
 
@@ -38,7 +38,7 @@ class AnswerForm extends Component {
             type="text"
             name="guess"
             id="guess"
-          // validate={[required, nonEmpty]}
+            validate={[required, nonEmpty]}
           />
           <button className="answer__button" disabled={this.props.pristine || this.props.submitting}>
             Submit!

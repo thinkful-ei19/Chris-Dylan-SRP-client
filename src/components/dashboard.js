@@ -6,10 +6,14 @@ import Options from './options';
 import AnswerForm from './AnswerForm';
 import AddItemForm from './add-item-form';
 import Feedback from './Feedback';
+import {Redirect} from 'react-router-dom';
 
 export class Dashboard extends React.Component {
 
   render() {
+    if (this.props.currentTab === 'decks') {
+      return <Redirect to='/decks' />
+    }
 
     let feedback = <Feedback />;
 
@@ -43,7 +47,8 @@ const mapStateToProps = state => {
     hasAnswered: state.guessReducer.isCorrect,
     currentDeckName: state.deckReducer.currentDeck.name,
     authToken: state.auth.authToken,
-    deckNames: state.deckReducer.deckNames
+    deckNames: state.deckReducer.deckNames,
+    currentTab: state.auth.currentTab
   };
 };
 

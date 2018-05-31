@@ -1,21 +1,21 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {Field, reduxForm, focus, reset} from 'redux-form';
+import { connect } from 'react-redux';
+import { Field, reduxForm, focus, reset } from 'redux-form';
 import { required, nonEmpty } from '../validators';
 
 import Input from './input';
 import { editItem } from '../actions/questions';
 
 class EditItemForm extends React.Component {
-    onSubmit(values) {
-        let item = {
-            question: values.question,
-            answer: values.answer,
-            deckId: this.props.currentDeckId,
-            questionId: this.props.currentQuestionId
-        }
-        this.props.dispatch(reset('edit-item-form'))
-        this.props.dispatch(editItem(this.props.authToken, item))
+  onSubmit(values) {
+    let item = {
+      question: values.question,
+      answer: values.answer,
+      deckId: this.props.currentDeckId,
+      questionId: this.props.currentQuestionId
+    }
+    this.props.dispatch(reset('edit-item-form'))
+    this.props.dispatch(editItem(this.props.authToken, item))
   }
 
   render() {
@@ -23,6 +23,7 @@ class EditItemForm extends React.Component {
       <form className="options__edit-item-form" onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
         <label className="options__edit-item-form__label" htmlFor="question">Question</label>
         <Field
+          className="options__input"
           component={Input}
           type="text"
           name="question"
@@ -31,6 +32,7 @@ class EditItemForm extends React.Component {
         />
         <label className="options__edit-item-form__label" htmlFor="answer">Answer</label>
         <Field
+          className="options__input"
           component={Input}
           type="answer"
           name="answer"

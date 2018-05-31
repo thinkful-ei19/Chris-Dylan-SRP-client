@@ -3,12 +3,21 @@
   border: 2px solid #eee;
   background-color: rgb(246, 246, 246);
   border-radius: 10px;
-  padding: 40px 60px;
+  padding: 40px 80px;
   height: 100%;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   & > * {
-    margin: 10px 0;
+    margin: 20px 0;
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  &__label {
+    font-weight: 700; 
   }
 
   &__delete {
@@ -40,6 +49,7 @@
     &__button {
       color: $color-edit;
       border: 2px solid $color-edit;
+      width: 100%;
       border-radius: 5px;
       margin-top: 5px;
       padding: 5px 10px;
@@ -61,6 +71,7 @@
       border-radius: 5px;
       padding: 5px 10px;
       margin-top: 5px;
+      width: 100%;
 
       &:hover {
         background-color: $color-submit;

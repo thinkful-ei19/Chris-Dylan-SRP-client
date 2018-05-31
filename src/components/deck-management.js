@@ -18,10 +18,10 @@ export class DeckManagement extends React.Component {
 
   dispatchPublishDeck(deckId, status) {
     let request;
-    if (status == "true") {
-        request = {public: false}
+    if (status === 'true') {
+      request = { public: false };
     } else {
-        request = {public: true}
+      request = { public: true };
     }
     this.props.dispatch(makePublicDeck(this.props.authToken, request, deckId, this.props.userId));
   }
@@ -32,10 +32,10 @@ export class DeckManagement extends React.Component {
 
   render() {
     if (this.props.currentTab === 'dashboard') {
-        return <Redirect to='/dashboard' />;
+      return <Redirect to='/dashboard' />;
     }
     if (this.props.currentTab === 'shared-decks') {
-        return <Redirect to='/shared-decks' />;
+      return <Redirect to='/shared-decks' />;
     }
     const decks = this.props.decks;
     let arr = [];
@@ -43,26 +43,26 @@ export class DeckManagement extends React.Component {
       decks.forEach((deck) => {
         arr.push(deck);
       });
-      arr = arr.sort((a,b) => {
-          return a.name.charCodeAt(0) > b.name.charCodeAt(0)
-      })
-    } catch (err) {}
-    for (let i=0; i<arr.length; i++) {
-        let publicString;
-        let statusString
-        if (arr[i].public === true) {
-            publicString = 'Make Private';
-            statusString = 'true'
-        } else {
-            publicString = 'Make Public';
-            statusString = 'false'
-        }
-        arr[i] = {
-            name: arr[i].name,
-            id: arr[i].id,
-            public: publicString,
-            status: statusString
-        }
+      arr = arr.sort((a, b) => {
+        return a.name.charCodeAt(0) > b.name.charCodeAt(0);
+      });
+    } catch (err) { }
+    for (let i = 0; i < arr.length; i++) {
+      let publicString;
+      let statusString;
+      if (arr[i].public === true) {
+        publicString = 'Make Private';
+        statusString = 'true';
+      } else {
+        publicString = 'Make Public';
+        statusString = 'false';
+      }
+      arr[i] = {
+        name: arr[i].name,
+        id: arr[i].id,
+        public: publicString,
+        status: statusString
+      };
     }
     const buildJSX = arr.map((deck) => {
       return (
@@ -71,7 +71,7 @@ export class DeckManagement extends React.Component {
           <button className="deck-list__delete" value={deck.id}
             onClick={(event) => this.dispatchDeleteDeck(event.target.value)}>
             Delete</button>
-            <button className="deck-list__publish" value={deck.id} name={deck.status}
+          <button className="deck-list__publish" value={deck.id} name={deck.status}
             onClick={(event) => this.dispatchPublishDeck(event.target.value, event.target.name)
             }>
             {deck.public}</button>

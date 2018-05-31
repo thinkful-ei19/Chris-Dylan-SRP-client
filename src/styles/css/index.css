@@ -247,11 +247,47 @@ input:-webkit-auto-fill {
   .deck-list__name {
     display: inline-block;
     margin-right: 20px; }
+  .deck-list__publish {
+    color: #96b98f;
+    border: 2px solid #96b98f;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px; }
+    .deck-list__publish:hover {
+      background-color: #96b98f;
+      color: #fff; }
   .deck-list__delete {
     color: #d1584a;
     border: 2px solid #d1584a;
+    margin: 0 5px;
     padding: 5px 10px;
     border-radius: 5px; }
     .deck-list__delete:hover {
       background-color: #d1584a;
+      color: #fff; }
+
+.shared-decks {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  font-size: 1.5rem; }
+  .shared-decks__list {
+    list-style-type: none; }
+  .shared-decks__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px 20px;
+    background-color: #fafafa; }
+  .shared-decks__button {
+    color: #96b98f;
+    border: 2px solid #96b98f;
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 5px; }
+    .shared-decks__button:hover {
+      background-color: #96b98f;
       color: #fff; }

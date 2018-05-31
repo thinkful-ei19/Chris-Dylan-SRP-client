@@ -7,51 +7,51 @@ import { Redirect } from 'react-router-dom';
 import { API_BASE_URL } from '../config';
 
 export class SharedDecks extends React.Component {
-    constructor(props) {
-        super(props)
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            decks: []
-        }
-    }
+    this.state = {
+      decks: []
+    };
+  }
 
-    dispatchCopyDeck(deckId) {
-        this.props.dispatch(copyDeck(this.props.authToken, deckId, this.props.userId))
-    }
+  dispatchCopyDeck(deckId) {
+    this.props.dispatch(copyDeck(this.props.authToken, deckId, this.props.userId));
+  }
 
   componentDidMount() {
     if (this.props.currentTab === 'dashboard') {
-        return <Redirect to='/dashboard' />;
-      }
-      if (this.props.currentTab === 'decks') {
-          return <Redirect to='/decks' />
-      }
+      return <Redirect to='/dashboard' />;
+    }
+    if (this.props.currentTab === 'decks') {
+      return <Redirect to='/decks' />;
+    }
     this.props.dispatch(getDeckNames(this.props.authToken, this.props.userId));
     return fetch(`${API_BASE_URL}/decks`, {
-        method: 'GET',
-        headers: { Authorization: `Bearer ${this.props.authToken}` }
-      })
+      method: 'GET',
+      headers: { Authorization: `Bearer ${this.props.authToken}` }
+    })
       .then(res => {
         if (!res.ok) {
-          return Promise.reject(res.statusText)
+          return Promise.reject(res.statusText);
         }
         return res.json();
       })
       .then(decks => {
-        let decksArr = [];          
-          decks.forEach((deck) => {
-              if (deck.public === true) {
-                  decksArr.push(deck)
-              }
-          })
-          return decksArr;
+        let decksArr = [];
+        decks.forEach((deck) => {
+          if (deck.public === true) {
+            decksArr.push(deck);
+          }
+        });
+        return decksArr;
       })
       .then((decks) => {
-          this.setState({
-              decks: decks
-          })
+        this.setState({
+          decks: decks
+        });
       })
-      .catch(err => console.error(err))
+      .catch(err => console.error(err));
   }
 
   render() {
@@ -59,24 +59,26 @@ export class SharedDecks extends React.Component {
       return <Redirect to='/dashboard' />;
     }
     if (this.props.currentTab === 'decks') {
-        return <Redirect to='/decks' />
+      return <Redirect to='/decks' />;
     }
 
     const buildList = this.state.decks.map((deck) => {
-        return (
-            <li key={deck.id}>
-                <p>{deck.name}</p>
-                <button value={deck.id}
-                onClick={(event) => {this.dispatchCopyDeck(event.target.value)}}
-                >Copy Deck</button>
-            </li>
-        )
-    })
+      return (
+        <li className="shared-decks__item" key={deck.id}>
+          <p className="shared-decks__name">{deck.name}</p>
+          <button className="shared-decks__button" value={deck.id}
+            onClick={(event) => { this.dispatchCopyDeck(event.target.value); }}
+          >Copy Deck</button>
+        </li>
+      );
+    });
 
     return (
-        <ul>
-            {buildList}
+      <div className="shared-decks">
+        <ul className="shared-decks__list">
+          {buildList}
         </ul>
+      </div>
     );
   }
 }

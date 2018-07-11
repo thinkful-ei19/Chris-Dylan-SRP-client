@@ -5,6 +5,11 @@
 ## View the Backend code here:
 https://github.com/thinkful-ei19/Chris-Dylan-SRP-server
 
+## Demo login information
+username: demo
+
+password: password12
+
 ## Tech Used
 
 ### Front-End
